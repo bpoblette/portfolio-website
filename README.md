@@ -9,3 +9,5 @@ This project will have several parts:
 * about page
 
 What each page will have is to tbd, but I do want some of my youtube videos to be embeded into projects page.
+
+Adding more to readme to make sure git is properly setup on my personal computer
