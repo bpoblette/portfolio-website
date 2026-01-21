@@ -1,68 +1,150 @@
+@import "tailwindcss";
+
+/* Root colors for hover effects */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    --blue-rgb: 237 245 255;
+    --green-rgb: 125 161 35;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* Body font - use Tailwind default font-sans (Work Sans as default) */
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    @apply font-sans;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Hover background effects */
+body:has(.card[data-color="blue"]:hover) {
+    background-color: rgb(var(--blue-rgb) / 25%);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+body:has(.card[data-color="green"]:hover) {
+    background-color: rgb(var(--green-rgb) / 25%);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Utilities block rewritten */
+@layer utilities {
+
+    /* Container */
+    .max-container {
+        @apply max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)];
+    }
+
+    /* Headings */
+    .head-text {
+        @apply sm:text-5xl text-3xl font-semibold sm:leading-snug;
+    }
+
+    .subhead-text {
+        @apply font-semibold sm:text-3xl text-xl relative;
+    }
+
+    .blue-gradient_text {
+        @apply bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent;
+    }
+
+    /* Inputs */
+    .input {
+        @apply bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2.5 font-normal shadow-md;
+    }
+
+    .textarea {
+        @apply block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-200 focus:ring-blue-500 focus:border-blue-500 mt-2.5 font-normal shadow-md;
+    }
+
+    /* Buttons */
+    .btn {
+        @apply text-white bg-gradient-to-r from-[#00c6ff] to-[#0072ff] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center;
+    }
+
+    /* Header */
+    .header {
+        @apply flex justify-between items-center sm:px-16 px-8 py-4 max-w-5xl mx-auto absolute top-0 bg-transparent z-10 right-0 left-0;
+    }
+
+    /* Footer */
+    .footer {
+        @apply max-w-5xl mx-auto sm:px-16 pb-6 px-8 flex flex-col gap-7;
+    }
+
+    .footer-container {
+        @apply flex flex-wrap gap-7 items-center justify-between;
+    }
+
+    /* Info Box with Neo-Brutalism style */
+    .info-box {
+        @apply mx-5 relative flex flex-col gap-3 max-w-2xl pt-4 pb-12 px-8 rounded-lg bg-blue-500 shadow-lg text-white;
+    }
+
+    /* Neo Button */
+    .neo-btn {
+        @apply py-3 px-6 rounded-lg text-blue-500 text-center font-semibold sm:w-1/2 w-[90%] -bottom-5 absolute mx-auto right-0 left-0 flex justify-center items-center gap-3;
+    }
+
+    /* CTA Section */
+    .cta {
+        @apply w-full flex items-center md:flex-row flex-col sm:mt-16 mt-8 gap-7;
+    }
+
+    .cta-text {
+        @apply text-black font-extrabold flex-1 text-3xl max-md:text-center;
+    }
+
+    /* Glass effect for cards */
+    .glassmorphism {
+        @apply bg-white/5 backdrop-blur-md rounded-lg border border-white/20;
+    }
+
+    /* Logo */
+    .logo {
+        @apply rounded-lg bg-white shadow-lg;
+    }
+
+    /* 3D Block container */
+    .block-container {
+        @apply relative transition-transform duration-200;
+        perspective: 500px;
+    }
+
+    .block-container .btn-back {
+        @apply absolute inset-0 z-0 w-full h-full transition-transform duration-200;
+        transform-style: preserve-3d;
+        transform-origin: bottom right;
+        transform: rotateZ(15deg);
+        box-shadow: 16px 0 40px #e4e4e4;
+    }
+
+    .block-container .btn-front {
+        @apply absolute inset-0 z-10 w-full h-full bg-white/20 backdrop-blur-lg transition-transform duration-200 overflow-hidden;
+        transform-style: preserve-3d;
+        transform-origin: top left;
+    }
+
+    .block-container:hover>.btn-back {
+        transform: translateZ(20px) rotateZ(15deg) rotateX(-20deg) rotateY(-20deg);
+    }
+
+    .block-container:hover>.btn-front {
+        transform: translateZ(80px) translateY(-5px) rotateX(15deg) rotateY(15deg);
+    }
+}
+
+/* Tailwind 4 theme definitions */
+@themes {
+    extend {
+        colors: {
+            gray: {
+                200: #D5DAE1
+            }
+
+            ,
+            black: {
+                DEFAULT: #000,
+                    500: #1D2235
+            }
+
+            ,
+            blue: {
+                500: #2b77e7
+            }
+        }
+    }
 }
