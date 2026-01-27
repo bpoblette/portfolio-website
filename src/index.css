@@ -1,17 +1,13 @@
 @import "tailwindcss";
 
-/* Root colors for hover effects */
+/* -------------------------------- */
+/* Root + Base                       */
+/* -------------------------------- */
 :root {
     --blue-rgb: 237 245 255;
     --green-rgb: 125 161 35;
 }
 
-/* Body font - use Tailwind default font-sans (Work Sans as default) */
-body {
-    @apply font-sans;
-}
-
-/* Hover background effects */
 body:has(.card[data-color="blue"]:hover) {
     background-color: rgb(var(--blue-rgb) / 25%);
 }
@@ -20,15 +16,12 @@ body:has(.card[data-color="green"]:hover) {
     background-color: rgb(var(--green-rgb) / 25%);
 }
 
-/* Utilities block rewritten */
+/* -------------------------------- */
+/* UTILITIES (atomic, visual only)  */
+/* -------------------------------- */
 @layer utilities {
 
-    /* Container */
-    .max-container {
-        @apply max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)];
-    }
-
-    /* Headings */
+    /* Typography */
     .head-text {
         @apply sm:text-5xl text-3xl font-semibold sm:leading-snug;
     }
@@ -41,26 +34,56 @@ body:has(.card[data-color="green"]:hover) {
         @apply bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent;
     }
 
-    /* Inputs */
-    .input {
-        @apply bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2.5 font-normal shadow-md;
+    /* Glass effect */
+    .glassmorphism {
+        background: rgba(8, 116, 239, 0.07);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
     }
 
-    .textarea {
-        @apply block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-200 focus:ring-blue-500 focus:border-blue-500 mt-2.5 font-normal shadow-md;
+    /* Neo Brutalism primitives */
+    .neo-brutalism-blue {
+        background: #2b77e7;
+        position: relative;
+        border-radius: 10px;
+        border: 2px solid #2b77e7;
+        box-shadow:
+            0.6vmin 0.6vmin #336cc1,
+            1vmin 1vmin #0092db,
+            1vmin 1vmin #0092db,
+            0.65vmin 1vmin #0092db,
+            1vmin 0.65vmin #0092db;
     }
 
-    /* Buttons */
-    .btn {
-        @apply text-white bg-gradient-to-r from-[#00c6ff] to-[#0072ff] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center;
+    .neo-brutalism-white {
+        background: #fff;
+        border: 2px solid #fff;
+        box-shadow:
+            0.6vmin 0.6vmin #fff,
+            1vmin 1vmin #d2e4ff,
+            1vmin 1vmin #d2e4ff,
+            0.65vmin 1vmin #d2e4ff,
+            1vmin 0.65vmin #d2e4ff;
+    }
+}
+
+/* -------------------------------- */
+/* COMPONENTS (composed UI pieces)  */
+/* -------------------------------- */
+@layer components {
+
+    /* Layout */
+    .max-container {
+        @apply max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)];
     }
 
-    /* Header */
+    /* Header / Footer */
     .header {
-        @apply flex justify-between items-center sm:px-16 px-8 py-4 max-w-5xl mx-auto absolute top-0 bg-transparent z-10 right-0 left-0;
+        @apply flex justify-between items-center sm:px-16 px-8 py-4 max-w-5xl mx-auto absolute top-0 left-0 right-0 bg-transparent z-10;
     }
 
-    /* Footer */
     .footer {
         @apply max-w-5xl mx-auto sm:px-16 pb-6 px-8 flex flex-col gap-7;
     }
@@ -69,17 +92,25 @@ body:has(.card[data-color="green"]:hover) {
         @apply flex flex-wrap gap-7 items-center justify-between;
     }
 
-    /* Info Box with Neo-Brutalism style */
-    .info-box {
-        @apply mx-5 relative flex flex-col gap-3 max-w-2xl pt-4 pb-12 px-8 rounded-lg bg-blue-500 shadow-lg text-white;
+    /* Buttons */
+    .btn {
+        @apply text-white bg-gradient-to-r from-[#00c6ff] to-[#0072ff] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center;
     }
 
-    /* Neo Button */
     .neo-btn {
-        @apply py-3 px-6 rounded-lg text-blue-500 text-center font-semibold sm:w-1/2 w-[90%] -bottom-5 absolute mx-auto right-0 left-0 flex justify-center items-center gap-3;
+        @apply py-3 px-6 rounded-lg text-center font-semibold sm:w-1/2 w-[90%] absolute -bottom-5 left-0 right-0 mx-auto flex justify-center items-center gap-3;
     }
 
-    /* CTA Section */
+    /* Forms */
+    .input {
+        @apply bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2.5 font-normal shadow-md;
+    }
+
+    .textarea {
+        @apply block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-200 focus:ring-blue-500 focus:border-blue-500 mt-2.5 font-normal shadow-md;
+    }
+
+    /* CTA */
     .cta {
         @apply w-full flex items-center md:flex-row flex-col sm:mt-16 mt-8 gap-7;
     }
@@ -88,17 +119,21 @@ body:has(.card[data-color="green"]:hover) {
         @apply text-black font-extrabold flex-1 text-3xl max-md:text-center;
     }
 
-    /* Glass effect for cards */
-    .glassmorphism {
-        @apply bg-white/5 backdrop-blur-md rounded-lg border border-white/20;
+    /* Cards / Boxes */
+    .info-box {
+        @apply mx-5 relative flex flex-col gap-3 max-w-2xl pt-4 pb-12 px-8 text-white;
     }
 
     /* Logo */
     .logo {
-        @apply rounded-lg bg-white shadow-lg;
+        border-radius: 8.889px;
+        background: #fff;
+        box-shadow:
+            0px 10px 35px -4px rgba(67, 83, 255, 0.15),
+            0px 1.5px 4px -1px rgba(67, 83, 255, 0.2);
     }
 
-    /* 3D Block container */
+    /* 3D Block */
     .block-container {
         @apply relative transition-transform duration-200;
         perspective: 500px;
@@ -124,27 +159,5 @@ body:has(.card[data-color="green"]:hover) {
 
     .block-container:hover>.btn-front {
         transform: translateZ(80px) translateY(-5px) rotateX(15deg) rotateY(15deg);
-    }
-}
-
-/* Tailwind 4 theme definitions */
-@themes {
-    extend {
-        colors: {
-            gray: {
-                200: #D5DAE1
-            }
-
-            ,
-            black: {
-                DEFAULT: #000,
-                    500: #1D2235
-            }
-
-            ,
-            blue: {
-                500: #2b77e7
-            }
-        }
     }
 }
