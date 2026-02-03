@@ -4,9 +4,15 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  base: '/', // important!
+  plugins: [
+    react(),
+    tailwindcss(),
+  ],
+  assetsInclude: ['**/*.glb'],
+  base: '/',
   build: {
-    outDir: 'dist', // must match workflow
+    outDir: 'dist', 
   },
 })
+
+
