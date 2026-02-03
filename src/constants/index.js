@@ -9,11 +9,20 @@ import {
     javascript,
     linkedin,
     nodejs,
-    pricewise,
     react,
     tailwindcss,
     ruby,
     vue,
+    postgres,
+    twobarrels,
+    rubyonrails,
+    aws,
+    basketball,
+    code,
+    graph,
+    dice,
+    steam,
+    love,
 } from "../assets/icons";
 
 
@@ -73,13 +82,28 @@ export const skills = [
         name: "Vue",
         type: "Frontend"
     },
+    {
+        imageUrl: postgres,
+        name: "Postgresql",
+        type: "Database",
+    },
+    {
+        imageUrl: rubyonrails,
+        name: "Ruby on Rails",
+        type: "Backend",
+    },
+    {
+        imageUrl: aws,
+        name: "Amazon Web Service",
+        type: "Hosting"
+    },
 ];
 
 export const experiences = [
     {
         title: "Full-Stack Developer (Company-Sponsored Senior Design Project)",
         company_name: "Two Barrels",
-        icon: html,
+        icon: twobarrels,
         iconBg: "#accbe1",
         date: "September 2020 - April 2021",
         points: [
@@ -112,10 +136,45 @@ export const socialLinks = [
 // todo
 export const projects = [
     {
-        iconUrl: pricewise,
+        iconUrl: basketball,
         theme: 'btn-back-red',
-        name: 'Amazon Price Tracker',
-        description: 'Developed a web application that tracks and notifies users of price changes for products on Amazon, helping users find the best deals.',
+        name: 'NBA Winshares Predictor',
+        description: 'Developed a machine learning algorithm which predicts the winshare based off several attributes.',
+        link: 'https://github.com/bpoblette/NBA-WS-Predictor',
+    },
+    {
+        iconUrl: code,
+        theme: 'btn-back-green',
+        name: 'MyPL',
+        description: 'Created a fully functional programming language with a profiler to conduct performance analysis,',
+        link: 'https://github.com/bpoblette/MyPL',
+    },
+    {
+        iconUrl: dice,
+        theme: 'btn-back-blue',
+        name: 'Multiplayer Yahtzee',
+        description: 'Designed a full multiplayer yahtzee. Game configurations are changeable with an adaptable score card allowing for a true Yahtzee playing experience.',
+        link: 'https://github.com/bpoblette/yahtzee',
+    },
+    {
+        iconUrl: graph,
+        theme: 'btn-back-pink',
+        name: 'Nearest Neighbor Heuristic',
+        description: 'Conducted performance analysis over nearest neighbor and a brute force algorithm.',
+        link: 'https://github.com/bpoblette/nearest-neighbor-heuristics',
+    },
+    {
+        iconUrl: steam,
+        theme: 'btn-back-yellow',
+        name: 'Steam Video Game Store Clone',
+        description: 'Created a Steam video game store clone, allowing users to buy games and manage their library.',
         link: 'https://github.com/adrianhajdin/pricewise',
+    },
+    {
+        iconUrl: love,
+        theme: 'btn-back-black',
+        name: 'Girlfriend Website',
+        description: 'Developed a cute web page for our 1 year anniversary.',
+        link: 'https://github.com/bpoblette/GirlfriendWebsite',
     },
 ];

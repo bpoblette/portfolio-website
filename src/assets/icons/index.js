@@ -15,6 +15,16 @@ import soundon from './soundon.png'
 import soundoff from './soundoff.png'
 import ruby from './ruby.svg'
 import vue from './vue.svg'
+import postgres from './postgres.svg'
+import twobarrels from './twobarrels.ico'
+import rubyonrails from './rubyonrails.svg'
+import aws from './aws.svg'
+import basketball from './basketball.svg'
+import code from './code.svg'
+import graph from './graph.svg'
+import dice from './dice.svg'
+import steam from './steam.svg'
+import love from './love.svg'
 
 export {
     css,
@@ -33,5 +43,15 @@ export {
     soundon,
     soundoff,
     ruby,
-    vue
+    vue,
+    postgres,
+    twobarrels,
+    rubyonrails,
+    aws,
+    basketball,
+    code,
+    graph,
+    dice,
+    steam,
+    love,
 }
