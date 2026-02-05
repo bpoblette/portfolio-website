@@ -1,4 +1,4 @@
-import {  } from "../assets/images";
+import { } from "../assets/images";
 import {
     contact,
     css,
@@ -168,7 +168,7 @@ export const projects = [
         theme: 'btn-back-yellow',
         name: 'Steam Video Game Store Clone',
         description: 'Created a Steam video game store clone, allowing users to buy games and manage their library.',
-        link: 'https://github.com/adrianhajdin/pricewise',
+        link: 'https://github.com/bpoblette/video-game-store',
     },
     {
         iconUrl: love,
